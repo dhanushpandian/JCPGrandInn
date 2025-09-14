@@ -187,6 +187,28 @@
   /* FOOTER */
   .footer-grid { grid-template-columns: 1fr; text-align: center; }
 }
+/* Horizontal gallery for phones */
+@media (max-width: 600px) {
+  .masonry {
+    column-count: unset;
+    column-gap: unset;
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+  }
+  .masonry::-webkit-scrollbar {
+    display: none; /* hide scrollbar */
+  }
+  .masonry-item {
+    flex: 0 0 auto;
+    width: 80%; /* each image takes most of screen */
+    scroll-snap-align: start;
+    margin: 0; /* remove bottom margin */
+  }
+}
+
   </style>
 </head>
 <body>
