@@ -139,6 +139,54 @@
        ---------------------- */
     @media (max-width:1000px){.masonry{column-count:2}.intro{grid-template-columns:1fr}.hero-left h2{font-size:36px}.hero-right{display:none}}
     @media (max-width:700px){.masonry{column-count:1}.nav{left:10px;right:10px;padding:10px}.hero-left h2{font-size:28px}}
+    @media (max-width: 600px) {
+  /* NAV */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background: white;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 14px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  }
+  .nav.open .nav-links { display: flex; }
+  .nav-toggle {
+    display: inline-flex;
+    font-size: 22px;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  /* HERO */
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    gap: 20px;
+  }
+  .hero-left h2 { font-size: 24px; }
+  .hero-left p { font-size: 15px; }
+  .hero-ctas { flex-direction: column; gap: 10px; }
+  .hero-right { display: none; }
+
+  /* INTRO */
+  .intro { grid-template-columns: 1fr; }
+
+  /* GALLERY */
+  .masonry { column-count: 1; column-gap: 8px; }
+  .masonry-item { margin-bottom: 8px; }
+
+  /* FLOATING WIDGET */
+  .book-btn { font-size: 14px; padding: 10px 14px; }
+
+  /* FOOTER */
+  .footer-grid { grid-template-columns: 1fr; text-align: center; }
+}
   </style>
 </head>
 <body>
@@ -152,7 +200,7 @@
         <p>Nature Retreat — Kodaikanal</p>
       </div>
     </div>
-
+    <button class="nav-toggle" aria-label="Toggle navigation menu" onclick="this.parentElement.classList.toggle('open')">☰</button>
     <div class="nav-links" aria-hidden="false">
       <a href="#about">About</a>
       <a href="#gallery">Gallery</a>
@@ -368,6 +416,13 @@
 
     // small accessibility improvement: ensure images with spaces load
     document.querySelectorAll('img').forEach(img=>{ img.src = img.src; });
+    
   </script>
+  <script>
+  document.querySelector('.nav-toggle').addEventListener('click', () => {
+    document.querySelector('.nav').classList.toggle('open');
+  });
+</script>
+
 </body>
 </html>
